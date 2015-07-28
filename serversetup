@@ -1,0 +1,5 @@
+-openssh
+-nginx
+-nodejs
+-npm
+-npm/forever-monitor
