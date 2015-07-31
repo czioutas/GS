@@ -16,7 +16,7 @@ var routes       = require('./routes');
 //var passport       = require('passport');
 //var Passport = require('./config/passport')(passport);
 var app      	   = express();
-//var core         = require('./app/modules/core.js');
+var core         = require('./app/modules/core.js');
 
 
 var uristring =
@@ -76,8 +76,8 @@ app.listen(app.get('port'), function(){
   console.log('Its time to pump up the jam! @ ' + app.get('port'));
 });
 
-//var io = require('socket.io').listen(server);
-//io.use(function(socket, next) {
-//    sessionMiddleware(socket.request, socket.request.res, next);
-//});
-//c = new core(io);
+var io = require('socket.io').listen(server);
+io.use(function(socket, next) {
+    sessionMiddleware(socket.request, socket.request.res, next);
+});
+c = new core(io);
